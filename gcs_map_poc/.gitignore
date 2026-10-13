@@ -1,0 +1,16 @@
+# colcon
+build/
+install/
+log/
+
+# Qt Creator
+*.user
+CMakeLists.txt.user*
+build-*/
+
+# generated tile packs and databases
+maps/*.mbtiles
+maps/*.db
+
+__pycache__/
+*.pyc
