@@ -1,0 +1,12 @@
+<!--
+  Starts the fake GPS with the parameters in config/gps_sim.yaml.
+    ros2 launch gps_sim gps_sim.launch.xml
+  Use another parameter file:
+    ros2 launch gps_sim gps_sim.launch.xml params:=/path/to/my_params.yaml
+-->
+<launch>
+  <arg name="params" default="$(find-pkg-share gps_sim)/config/gps_sim.yaml"/>
+  <node pkg="gps_sim" exec="gps_sim" name="gps_sim" output="screen">
+    <param from="$(var params)"/>
+  </node>
+</launch>

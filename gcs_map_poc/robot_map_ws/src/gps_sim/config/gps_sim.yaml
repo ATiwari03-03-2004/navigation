@@ -1,0 +1,17 @@
+# Parameters for the fake GPS (gps_sim). Used by launch/gps_sim.launch.xml.
+# Edit and re-run "colcon build" (or use --symlink-install to skip the rebuild).
+gps_sim:
+  ros__parameters:
+    topic: /gcs/telemetry
+    frame_id: gps             # header.frame_id of every NavSatFix
+    rate_hz: 5.0              # GPS readings per second
+    start_lat: 28.6129        # start position (WGS 84). Must be inside the GCS's map tiles.
+    start_lon: 77.2295
+    lat_step: 0.000001        # degrees added per reading (~0.11 m north)
+    lon_step: 0.0000015       # degrees added per reading (~0.15 m east at this latitude)
+    noise_m: 0.5              # random GPS error, metres (0 = exact positions)
+    max_steps: 6000           # then go back to the start (0 = never)
+    pattern: line             # line | square
+    square_side_steps: 300
+    altitude_m: 216.0
+    drop_fix_every: 0         # every N readings report "no fix" once (0 = never)
